@@ -38,8 +38,8 @@ The results directory, contains a set of subdirectories listed as 1,2,3,.... Eac
     - have a alignment length of more than 100bp 
         This was done using the code available in another git repository https://github.com/linsalrob/sam
         The command run was in the results file, \
-        `for f in */; do cd $f; for i in *.bam; do sam_len 100 $i /home/username/filteredbam/$i; done; cd ..;  done`
-        `#the code enter every subdirectory in results file, and runs the sam_len command on every bam file one by one. The resulting filtered bam files are saved to the filepath "/home/username/filteredbam/". `
+        `for f in */; do cd $f; for i in *.bam; do sam_len 100 $i /home/username/filteredbam/$i; done; cd ..;  done
+        #the code enter every subdirectory in results file, and runs the sam_len command on every bam file one by one. The resulting filtered bam files are saved to the filepath "/home/username/filteredbam/". `
         
     - have more than 10 hits at least 
     
