@@ -7,6 +7,7 @@ The objective of this project was to develop a workflow to search SRA datasets u
 
 #### Common steps included in the workflow 
 The general steps inlcuded in the workflow is shown in the below figure
+
 ![alt text](https://github.com/NCGAS/CEWiT-REU-Identifying-datasets-in-SRA-using-Jetstream/blob/master/SRApaper-method.png "Workflow steps")
 
-#### Steps to run this worflow 
+#### Steps to run this workflow 
