@@ -38,8 +38,21 @@ The results directory, contains a set of subdirectories listed as 1,2,3,.... Eac
     - have a alignment length of more than 100bp 
         This was done using the code available in another git repository https://github.com/linsalrob/sam
         The command run was in the results file, \
-        `for f in */; do cd $f; for i in *.bam; do sam_len 100 $i /home/username/filteredbam/$i; done; cd ..;  done
-        #the code enter every subdirectory in results file, and runs the sam_len command on every bam file one by one. The resulting filtered bam files are saved to the filepath "/home/username/filteredbam/". `
-        
+        `for f in */; do cd $f; for i in *.bam; do sam_len 100 $i $i-filtered.bam; done; cd ..;  done `
+        The above code enters every subdirectory in results file (cd $f), and runs the sam_len command on every bam file one by one. The resulting filtered bam files are saved with the filename "SRR/ERR/DRR...-filtered.bam 
     - have more than 10 hits at least 
+       In the results file again, run the following command 
+            - First, I used samtools count to count the number of hits per sample and save it to a new file. 
+                 `for f in */; do cd $f; for i in *-filtered.bam; do echo -n "$i: " >> ../samtools_count; echo ``samtools view -c "$i"`` >>../samtools_count; done`
+                This outputs the file, samtools_count which has the format., (S/E/D)RR ID: number of hits
+            - Then create a subset list with lines from samtools_count that have more than 10 hits, using the command
+                `sed -e 's/bam: /\t/g' samtools_count| awk '{ if ($2 > 10) { print } }'| cut -f 1 > moreThan10Hits.txt`
+            - Now make a subset bam file with the filetered hits
+                Make a directory called subset to save all the filtered bam files
+                `mkdir subset`
+                Then from the list copy over the bam files to the new directory made.
+                `for f in */; do  cd $f; for i in ``cat ../../moreThan10Hits.txt``; do  cp $i.bam /vol_b/subset/.; done; cd ..;  done`
+                
+    Great! Now we have the filered bam files that potentially have the sequence of interest or genome. 
     
+5. 
