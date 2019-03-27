@@ -6,3 +6,7 @@ This project was done by National Center for Genome Analysis Support ([NCGAS](ht
 The objective of this project was to develop a workflow to search SRA datasets using the developed gateway SearchSRA to identify datasets that contain the sequence of interest. The workflow focused on filtering the results from searchSRA to filter and visualize the results to confirm the presence of the sequence. The resulting datasets that do contain the sequence of interest can now be added to the research project for analysis as needed. 
 
 #### Common steps included in the workflow 
+The general steps inlcuded in the workflow is shown in the below figure
+![alt text](https://github.com/NCGAS/CEWiT-REU-Identifying-datasets-in-SRA-using-Jetstream/blob/master/SRApaper-method.png "Workflow steps")
+
+#### Steps to run this worflow 
