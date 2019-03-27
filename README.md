@@ -22,8 +22,9 @@ The general steps inlcuded in the workflow is shown in the below figure
     - Click "Save and Launch" to start the job
   Documentation on how to use the gateway is also available [here](https://www.searchsra.org/pages/documentation).
 
-3. Once the searchSRA job is completed, download the output "results.txt". This file contains a link where the results are stored, and other inforamtion. \      \
-For example, here is the format of the results.txt file \
+3. Once the searchSRA job is completed, download the output "results.txt". This file contains a link where the results are stored, and other inforamtion. \    
+For example, \
+Here is the format of the results.txt file \
 results_url = http://IPaddress/results/c800788d-3146-4ad6-8529-aa76d83d6694/results.zip \
 results_size = 548M \
 total_compute_hours = 120.49 
