@@ -76,13 +76,13 @@ The commands used to quickly visualize the data in anvio,
     - converting the data back to bam  \
         `for f in *.sam ; do  samtools view -bS $f >$f.2.bam ; done`
         
-- Profiling the bam files against the contigs database 
+- Profiling the bam files against the contigs database \
     `for f in *-anvio.bam ; do  anvi-profile -i $f -c contigs.db ; done`
  
-- Merging all profiles 
+- Merging all profiles \
     `anvi-merge */PROFILE.db -o SAMPLES-MERGED -c contigs.db --skip-concoct-binning`
 
-- Visualize the data 
+- Visualize the data \
     `anvi-interactive -p PROFILE.db -c contigs.db ` 
     
 
