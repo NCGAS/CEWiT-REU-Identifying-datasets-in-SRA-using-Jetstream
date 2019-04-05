@@ -40,10 +40,10 @@ The results directory, contains a set of subdirectories listed as 1,2,3,.... Eac
 #### Filtering  
 Filter the bam files to include only those that, 
 1. have a alignment length of more than 100bp 
-    This was done using the code available in another git repository https://github.com/linsalrob/sam. \
-    The command run was in the results file, \
+    - This was done using the code available in another git repository https://github.com/linsalrob/sam. \
+    - The command run was in the results file, \
         `for f in */; do cd $f; for i in *.bam; do sam_len 100 $i $i-filtered.bam; done; cd ..;  done ` \
-    The above code enters every subdirectory in results file (cd $f), and runs the sam_len command on every bam file one by one. The resulting filtered bam files are saved with the filename "SRR/ERR/DRR...-filtered.bam 
+    - The above code enters every subdirectory in results file (cd $f), and runs the sam_len command on every bam file one by one. The resulting filtered bam files are saved with the filename "SRR/ERR/DRR...-filtered.bam 
 2. have more than 10 hits at least \
 In the results file again, run the following command \
     - First, I used samtools count to count the number of hits per sample and save it to a new file. \
