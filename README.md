@@ -48,9 +48,9 @@ Filter the bam files to include only those that,
 In the results file again, run the following command \
     - First, I used samtools count to count the number of hits per sample and save it to a new file. 
     `for f in */; do cd $f; for i in *-filtered.bam; do echo -n "$i: " >> ../samtools_count; echo ``samtools view -c "$i"`` >>../samtools_count; done` \
-    This outputs the file, samtools_count which has the format., (S/E/D)RR ID: number of hits \
+    This outputs the file, samtools_count which has the format., (S/E/D)RR ID: number of hits 
     - Then create a subset list with lines from samtools_count that have more than 10 hits, using the command 
-    `sed -e 's/bam: /\t/g' samtools_count| awk '{ if ($2 > 10) { print } }'| cut -f 1 > moreThan10Hits.txt` \
+    `sed -e 's/bam: /\t/g' samtools_count| awk '{ if ($2 > 10) { print } }'| cut -f 1 > moreThan10Hits.txt` 
     - Now make a subset bam file with the filetered hits 
         Make a directory called subset to save all the filtered bam files \
         `mkdir subset` \
