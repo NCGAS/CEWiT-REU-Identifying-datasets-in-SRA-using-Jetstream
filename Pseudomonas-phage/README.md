@@ -44,6 +44,7 @@ Using Anvi'o, upload data to Jetstream \
 - visualize data \
   `anvi-interactive -p SAMPLES-MERGED/PROFILE.db -c /home/sruthi12/contigs.db`
  
-
+#### Image from Anvi'o showing the results 
+![alt text](https://github.com/NCGAS/CEWiT-REU-Identifying-datasets-in-SRA-using-Jetstream/blob/master/Pseudomonas-phage/pseudomas%20phage.png)
 
 
