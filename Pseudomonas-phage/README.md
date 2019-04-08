@@ -45,6 +45,11 @@ Using Anvi'o, upload data to Jetstream \
   `anvi-interactive -p SAMPLES-MERGED/PROFILE.db -c /home/sruthi12/contigs.db`
  
 #### Image from Anvi'o showing the results 
-![alt text](https://github.com/NCGAS/CEWiT-REU-Identifying-datasets-in-SRA-using-Jetstream/blob/master/Pseudomonas-phage/pseudomas%20phage.png)
+This image shows the 4 datasets identified to contain the Pseudomonas phage, and the coverage of the reads against the phage genome. 
+![alt text](https://github.com/NCGAS/CEWiT-REU-Identifying-datasets-in-SRA-using-Jetstream/blob/master/Pseudomonas-phage/pseudomas%20phage.png =300x300)
+
+#### Conclusion
+The SRR1518980 datsaet, was previously characterized as an unclassified virus, which through this workflow we can predict is Pseudomonas phage PAK P1. 
+
 
 
