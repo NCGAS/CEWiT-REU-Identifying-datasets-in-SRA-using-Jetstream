@@ -29,26 +29,14 @@ Using Anvi'o, upload data to Jetstream
 - CONVERT BAM files to SAM files
   `samtools view -h -o output.sam input.bam` \
   for loop: changing all bam files to sam files \
-  `for dir in *.bam` \ 
-  `do` \ 
-  `samtools view -h -o  $dir.sam $dir` \
-  `done` 
+  `for dir in *.bam;  do samtools view -h -o  $dir.sam $dir; done` 
 - CHANGE CONTIG (TO MATCH BAM FILES) 
-  `for dir in *.bam.sam` \
-  `do` \
-  `sed -e 's/NC_015294.2/c_000000000001/g' $dir>$dir.new.sam` \
-  `done` 
+  `for dir in *.bam.sam ; do sed -e 's/NC_015294.2/c_000000000001/g' $dir>$dir.new.sam;  done` 
 - CONVERT SAM back to BAM
-  `for dir in *.bam.sam.new.sam` \
-  `do` \
-  `samtools view -h -o $dir.bam $dir` \
-  `done`
+  `for dir in *.bam.sam.new.sam; do samtools view -h -o $dir.bam $dir; done`
 - Profiling BAM files
   write a for loop to sort bam files
-  `for dir in *.bam (.bam.sam.new.sam.bam)` \
-  `do` \
-  `anvi-init-bam $dir -o $dir.2.bam` \
-  `done` 
+  `for dir in *.bam (.bam.sam.new.sam.bam); do anvi-init-bam $dir -o $dir.2.bam; done` 
 - create anvi-profiles 
 `anvi-profile -i $dir -c /home/sruthi12/contigs.db `
 - MERGE
