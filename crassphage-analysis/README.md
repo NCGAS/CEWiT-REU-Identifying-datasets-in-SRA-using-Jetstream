@@ -53,7 +53,7 @@ Using Anvi'o, upload data to Jetstream \
 #### Image from Anvi'o showing the results 
 This image shows the 4 datasets identified to contain the Pseudomonas phage, and the coverage of the reads against the phage genome. \
 
-<img src="https://github.com/NCGAS/CEWiT-REU-Identifying-datasets-in-SRA-using-Jetstream/blob/master/crassphage-analysis/crassphage.png" style="height:400px;"/>
+<img src="https://github.com/NCGAS/CEWiT-REU-Identifying-datasets-in-SRA-using-Jetstream/blob/master/crassphage-analysis/crassphage.png" style="height:100px;"/>
 
 
 #### Conclusion
