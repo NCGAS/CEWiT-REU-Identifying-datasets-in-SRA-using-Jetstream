@@ -13,6 +13,7 @@ The general steps inlcuded in the workflow is shown in the below figure
 ### Steps to run this workflow
 #### Input sequence
 This is the sequence of interest or a genome that you would like to identify in other datasets in SRA.
+Before running the next set of steps, make sure to update the sequence headers to remove anything that is not a digit, an ASCII letter, an underscore, or a dash character. Trust me you will thank me later, if you do this now.
 
 #### Search SRA 
 To search SRA, we used the gateway [SearchSRA gateway](https://www.searchsra.org/)
@@ -65,17 +66,20 @@ This final step is to quickly visualize the filtered bam files against the input
 For this step we picked [Anvi'o](http://merenlab.org/software/anvio/), an analysis and visualization platform for omics data. This platform will extend the data to not just confirming datasets do contain the genome, but also explore the results further. 
 
 The commands used to quickly visualize the data in anvio, 
-- reformat the fasta header sequences \
-`anvi-script-reformat-fasta input.fasta -o contigs.fa -l 0 --simplify-names`
+- reformat the fasta header sequences, if you have made sure to change your sequence header before uploading it to SearchSRA, then you can skip this step. If not, run the command, 
+`anvi-script-reformat-fasta contigs.fa -o contigs-fixed.fa -l 0 --simplify-names --report-file`
 
 - create a contigs database from the reformated fasta sequence
 `anvi-gen-contigs-database -f contigs.fa -o contigs.db` 
 
-- Now, here is a fix that is required for these samples, only. Since the bam/sam files were aligned against the raw fasta files (before the reformating step in Anvio), all the header sequences in the bam/sam files are now changes and dont overlap with the new names in contigs.db. Our workaround for this project was to simply replace the old header sequences in input.fasta with the new header sequences in contigs.fasta, using sed 
+- Skip this step if you * didn't_ * have to reformat your contigs.fa using the *anvi-script-reformat-fasta*. If you ran the script, then follow along. Now, here is a fix that is required for these samples, since the bam/sam files were aligned against the raw fasta files (before the reformating step in Anvio), all the header sequences in the bam/sam files are now changed and dont overlap with the new names in contigs.db. 
+
+Here is our workaround for this project - Simply replace the old header sequences in input.fasta with the new header sequences in contigs.fasta, using sed 
     - `for f in *.sam; do  sed -i 's/MH675552.1/c_000000000001/g' $f ; done`
     - converting the data back to bam  \
         `for f in *.sam ; do  samtools view -bS $f >$f.2.bam ; done`
-        
+*Note: This fix will not work for multiple sequences in the contigs.fa file. Working on that script currently.*
+ 
 - Profiling the bam files against the contigs database \
     `for f in *-anvio.bam ; do  anvi-profile -i $f -c contigs.db ; done`
  
