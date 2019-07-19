@@ -72,7 +72,7 @@ The commands used to quickly visualize the data in anvio,
 - create a contigs database from the reformated fasta sequence
 `anvi-gen-contigs-database -f contigs.fa -o contigs.db` 
 
-- Skip this step if you * didn't_ * have to reformat your contigs.fa using the *anvi-script-reformat-fasta*. If you ran the script, then follow along. Now, here is a fix that is required for these samples, since the bam/sam files were aligned against the raw fasta files (before the reformating step in Anvio), all the header sequences in the bam/sam files are now changed and dont overlap with the new names in contigs.db. \
+- Skip this step if you **didn't_** have to reformat your contigs.fa using the *anvi-script-reformat-fasta*. If you ran the script, then follow along. Now, here is a fix that is required for these samples, since the bam/sam files were aligned against the raw fasta files (before the reformating step in Anvio), all the header sequences in the bam/sam files are now changed and dont overlap with the new names in contigs.db. \
 Here is our workaround for this project - Simply replace the old header sequences in input.fasta with the new header sequences in contigs.fasta, using sed 
     - `for f in *.sam; do  sed -i 's/MH675552.1/c_000000000001/g' $f ; done`
     - converting the data back to bam  \
